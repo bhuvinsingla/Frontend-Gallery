@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(36, 107, 44);
+        }
+        #main-heading{
+            color: white;
+            text-align: center;
+            text-shadow: 5px 5px 10px black;
+        }
+        #box{
+            color: black;
+            background-color: white;
+            margin: 2% 25%;
+            padding: 5%;
+            font-family: sans-serif;
+        }
+        
+        #name,#email,#age,select{
+            width: 100%;
+            padding: 2%;
+            margin: 2% 0% 2% 0%;
+        }
+        #recommed-1,#recommed-2,#recommed-3{
+            margin: 2% 0% 1.5% 1.5%;
+        }
+        .check{
+            margin-top: 2%;
+        }
+        #comments{
+            width: 100%;
+            height: 40%;
+            margin-top: 2.5%;
+            
+        }
+        button{
+            background-color: rgb(36, 107, 44);
+            width: 100%;
+            padding: 1%;
+            color: white;
+            box-shadow: 5px 5px 10px rgb(13, 244, 48);
+            font-size: x-large;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 id="main-heading">Bhuvin's Survey Form</h1>
+    <form>
+    <div id="box">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" placeholder="Enter your name"><br><Br>
+
+        <label for="email">Email</label><br>
+        <input type="text" id="email" placeholder="Enter your email"><br><br>
+
+        <label for="age">Age</label><br>
+        <input type="number" id="age" placeholder="Enter your age"><br><Br>
+
+        <label for="option">Which option best describes you ? </label><br>
+        <select id="option">
+            <option>Student</option>
+            <option>Professional</option>
+            <option>Intern</option>
+            <option>Other</option>
+        </select><br><Br>
+
+        <label>
+            Would you recommend Chitkara
+            to a friend?
+        </label><br>
+       
+        <label for="recommed-1">
+            <input type="radio" id="recommed-1"
+                name="recommed">Yes
+            </input><br>
+        </label>
+        <label for="recommed-2">
+            <input type="radio" id="recommed-2"
+                name="recommed">No
+            </input><br>
+        </label>
+        <label for="recommed-3">
+            <input type="radio" id="recommed-3"
+                name="recommed">Maybe
+            </input>
+        </label><br><br>
+
+        <label for="languages">Languages and Frameworks known (Check all that apply)</label>
+        <br>
+        <input type="checkbox" name="inp" class="check">C</input><br>
+        <input type="checkbox" name="inp" class="check">C++</input><br>
+        <input type="checkbox" name="inp" class="check">C#</input><br>
+        <input type="checkbox" name="inp" class="check">Java</input><br>
+        <input type="checkbox" name="inp" class="check">Python</input><br>
+        <input type="checkbox" name="inp" class="check">JavaScript</input><br>
+        <input type="checkbox" name="inp" class="check">React</input><br>
+        <input type="checkbox" name="inp" class="check">Angular</input><br>
+        <input type="checkbox" name="inp" class="check">Django</input><br><br>
+
+        <label for="comments">Any comments or suggestions</label>
+        <textarea id="comments" rows="5"></textarea><br><Br><br>
+
+            <button type="submit" value="submit">Submit</button>
+
+    </div>
+    </form>
+</body>
+</html>
