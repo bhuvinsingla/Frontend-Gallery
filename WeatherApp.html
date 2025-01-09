@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .weather { font-size: 24px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Weather App</h1>
+    <div class="weather">
+        <p id="location">Fetching location...</p>
+        <p id="weather">Fetching weather...</p>
+    </div>
+
+    <script>
+        function getWeatherData(latitude, longitude) {
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=YOUR_API_KEY`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('weather').innerHTML = `Weather: ${data.weather[0].description}, Temperature: ${(data.main.temp - 273.15).toFixed(2)}°C`;
+                });
+        }
+
+        function success(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            document.getElementById('location').innerHTML = `Location: ${latitude}, ${longitude}`;
+            getWeatherData(latitude, longitude);
+        }
+
+        function error() {
+            document.getElementById('location').innerHTML = 'Unable to retrieve location.';
+        }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+        } else {
+            document.getElementById('location').innerHTML = 'Geolocation is not supported by this browser.';
+        }
+    </script>
+</body>
+</html>

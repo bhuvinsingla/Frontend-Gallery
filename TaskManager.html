@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; }
+        .task-container { display: flex; justify-content: space-between; width: 80%; }
+        .task-list { width: 30%; padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9; }
+        .task-item { padding: 8px; margin: 5px; background-color: #e4e4e4; cursor: move; }
+    </style>
+</head>
+<body>
+    <div class="task-container">
+        <div class="task-list" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>To Do</h2>
+            <div class="task-item" id="task1" draggable="true" ondragstart="drag(event)">Task 1</div>
+            <div class="task-item" id="task2" draggable="true" ondragstart="drag(event)">Task 2</div>
+        </div>
+        <div class="task-list" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>In Progress</h2>
+        </div>
+        <div class="task-list" id="completed" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Completed</h2>
+        </div>
+    </div>
+
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            var task = document.getElementById(data);
+            ev.target.appendChild(task);
+        }
+    </script>
+</body>
+</html>

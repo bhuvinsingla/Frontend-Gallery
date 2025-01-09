@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .expense-form { margin-bottom: 20px; }
+        .expense-item { margin: 5px 0; padding: 8px; background-color: #f9f9f9; border-radius: 5px; }
+        .expense-list { margin: 20px 0; text-align: left; display: inline-block; }
+        .total { font-size: 24px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    
+    <!-- Expense Form -->
+    <div class="expense-form">
+        <label for="expenseName">Expense Name:</label>
+        <input type="text" id="expenseName" placeholder="Expense name" required>
+        <label for="expenseAmount">Amount:</label>
+        <input type="number" id="expenseAmount" placeholder="Amount" required>
+        <button onclick="addExpense()">Add Expense</button>
+    </div>
+    
+    <!-- Expense List -->
+    <div class="expense-list" id="expenseList">
+        <h3>Expenses:</h3>
+    </div>
+
+    <!-- Total Amount -->
+    <div class="total" id="totalAmount">Total: $0.00</div>
+
+    <script>
+        let expenses = [];
+
+        // Function to add an expense
+        function addExpense() {
+            const name = document.getElementById('expenseName').value;
+            const amount = parseFloat(document.getElementById('expenseAmount').value);
+
+            if (name && !isNaN(amount) && amount > 0) {
+                expenses.push({ name, amount });
+                displayExpenses();
+                calculateTotal();
+                clearFields();
+            } else {
+                alert('Please provide a valid name and amount');
+            }
+        }
+
+        // Function to display expenses
+        function displayExpenses() {
+            const list = document.getElementById('expenseList');
+            list.innerHTML = '<h3>Expenses:</h3>'; // Clear existing list
+
+            expenses.forEach(expense => {
+                const expenseDiv = document.createElement('div');
+                expenseDiv.classList.add('expense-item');
+                expenseDiv.innerHTML = `${expense.name}: $${expense.amount.toFixed(2)}`;
+                list.appendChild(expenseDiv);
+            });
+        }
+
+        // Function to calculate total amount
+        function calculateTotal() {
+            const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+            document.getElementById('totalAmount').innerText = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Function to clear input fields
+        function clearFields() {
+            document.getElementById('expenseName').value = '';
+            document.getElementById('expenseAmount').value = '';
+        }
+    </script>
+</body>
+</html>
