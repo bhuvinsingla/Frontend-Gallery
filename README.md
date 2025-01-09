@@ -1,10 +1,9 @@
-Tribute Page (APJ Abdul Kalam)
+Here’s a more detailed description in bullet points for your README:
 
-* Someone you admire the most in your life
-* Writing about the person
-* Add picture of person
+- **Expense Tracker**: Manage and calculate expenses, display them in a list, and track the total amount.
+- **Weather Dashboard**: Fetch and display real-time weather data, including current weather, temperature, and forecast for any location.
+- **To-Do List**: Add, complete, and delete tasks, with a dynamic task list and local storage support.
+- **Movie Database**: Explore movie details like ratings, posters, and summaries, fetched from an external API.
+- **Quiz App**: Interactive multiple-choice quizzes with score tracking and immediate feedback after each question.
 
-Webpage Form 
-
-* use a text field, checkbox, radio button, date, and others
-* proper structure to a webpage
+All projects are built using **HTML**, **CSS**, and **JavaScript**, showcasing dynamic functionality and practical solutions.
